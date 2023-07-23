@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { initializeApp } from "firebase/app";
+
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'bookshelves';
+  constructor() {
+    const firebaseConfig = {
+
+      apiKey: "AIzaSyAbeXQ6IDSGGoblwtmc1vB1hz17n6n8GBA",
+
+      authDomain: "bookshelves-c3a59.firebaseapp.com",
+
+      projectId: "bookshelves-c3a59",
+
+      storageBucket: "bookshelves-c3a59.appspot.com",
+
+      messagingSenderId: "391078524843",
+
+      appId: "1:391078524843:web:ce12c9626bfca61e8344ee"
+
+    };
+
+
+// Initialize Firebase
+
+    const app = initializeApp(firebaseConfig);
+  }
 }
