@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import firebase from "firebase/compat";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Injectable({
   providedIn: 'root'
@@ -38,12 +37,17 @@ export class AuthService {
       }
     )
   }
+
+  signOutUser() {
+    firebase.auth().signOut();
+}
+
+
 }
 function reject(error: any) {
-    throw new Error('Function not implemented.');
+  throw new Error('Function not implemented.');
 }
 
 function resolve() {
-    throw new Error('Function not implemented.');
+  throw new Error('Function not implemented.');
 }
-

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { initializeApp } from "firebase/app";
-
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,7 @@ export class AppComponent {
 // Initialize Firebase
 
     const app = initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
   }
 }
