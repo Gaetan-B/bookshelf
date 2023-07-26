@@ -2,14 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import * as firebase from "firebase/compat";
+import * as firebase from "firebase/compat/app";
 
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
-export class SignupComponen implements OnInit{
+export class SignupComponent implements OnInit{
   signUpForm!: FormGroup;
   errorMessage!: string;
 
@@ -24,8 +24,8 @@ export class SignupComponen implements OnInit{
 
   initForm() {
     this.signUpForm = this.formBuilder.group( {
-      email: ['email', [Validators.required, Validators.email]],
-      password: ['mot de passe', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     });
   }
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { initializeApp } from "firebase/app";
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import initializeApp = firebase.initializeApp;
 
 @Component({
   selector: 'app-root',
@@ -16,6 +15,8 @@ export class AppComponent {
 
       authDomain: "bookshelves-c3a59.firebaseapp.com",
 
+      databaseURL: "https://bookshelves-c3a59-default-rtdb.europe-west1.firebasedatabase.app",
+
       projectId: "bookshelves-c3a59",
 
       storageBucket: "bookshelves-c3a59.appspot.com",
@@ -25,12 +26,12 @@ export class AppComponent {
       appId: "1:391078524843:web:ce12c9626bfca61e8344ee"
 
     };
+    const app = initializeApp(firebaseConfig);
 
 
 // Initialize Firebase
 
-    const app = initializeApp(firebaseConfig);
-    const auth = firebase.auth();
-    const db = firebase.firestore();
+
+
   }
 }
