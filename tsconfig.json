@@ -30,6 +30,6 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "esModuleInterop": true,
-    "strictFunctionTypes": false,
+    "strictFunctionTypes": true,
   }
 }
