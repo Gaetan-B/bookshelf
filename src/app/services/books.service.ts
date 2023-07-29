@@ -5,6 +5,7 @@ import firebase from "firebase/compat/app";
 import 'firebase/compat/database';
 import 'firebase/compat/storage';
 import 'firebase/storage';
+import {error} from "@angular/compiler-cli/src/transformers/util";
 
 @Injectable({
   providedIn: 'root'
@@ -52,6 +53,20 @@ export class BooksService {
   }
 
   removeBook(book: Book) {
+    if(book.photo) {
+      if (typeof book.photo === "string") {
+        const storageRef = firebase.storage().refFromURL(book.photo);
+        storageRef.delete().then(
+          () => {
+            console.log('Photo supprimée');
+          }
+        ).catch(
+          (error) => {
+            console.log('Fichier non trouvé : ' + error);
+          }
+        )
+      }
+    }
     const bookIndexToRemove = this.books.findIndex(
       (bookEl) => {
         if(bookEl === book) {

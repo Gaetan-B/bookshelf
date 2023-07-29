@@ -13,8 +13,9 @@ export class BookFormComponent implements OnInit{
 
   bookForm!: FormGroup;
   fileIsUploading = false;
-  fileURL!: string;
+  fileURL!: unknown;
   fileUploaded = false;
+  url: string = 'test';
 
   constructor(private formBuilder: FormBuilder,
               private booksService: BooksService,
@@ -45,7 +46,7 @@ export class BookFormComponent implements OnInit{
 
   onUploadFile(file: File) {
     this.fileIsUploading = true;
-    this.booksService.uploadFile(file).then((url: string) => {
+    this.booksService.uploadFile(file).then((url) => {
         this.fileURL = url;
         this.fileIsUploading = false;
         this.fileUploaded = true;
@@ -53,7 +54,7 @@ export class BookFormComponent implements OnInit{
     )
   }
 
-  detectFiles(event: { target: { files: File[]; }; }) {
+  detectFiles(event: any) {
     this.onUploadFile(event.target.files[0]);
   }
 
